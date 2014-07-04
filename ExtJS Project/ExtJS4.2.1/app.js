@@ -1,23 +1,26 @@
 Ext.application({
-    requires: ['Ext.container.Viewport'],
     name: 'RLM',
-
     appFolder: 'app',
+	autoCreateViewport: true,
 
-    launch: function() {
-        Ext.create('Ext.container.Viewport', {
-            layout: 'fit',
-            items: [
-                {
-                    xtype: 'panel',
-                    title: 'User Manage',
-                    html : 'List of users will go here'
-                }
-            ]
-        });
-    },
+	views: [
+        'Viewport'
+    ],
+	
+	stores:[
+		'ViewportMenuTreeStore',
+		'ResGridStore'
+	],
 	
 	controllers: [
-		'UserManageCtrl'
-	]
+		'ViewportCtrl',
+		'ResManageCtrl',
+		'ResCategoryManageCtrl',
+		'CourseManageCtrl'
+		
+	],
+    
+    launch: function() {
+		
+    }
 });
